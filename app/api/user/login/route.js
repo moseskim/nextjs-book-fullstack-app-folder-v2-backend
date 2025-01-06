@@ -21,8 +21,6 @@ export async function POST(request) {
                         .setProtectedHeader({alg: "HS256"})
                         .setExpirationTime("1d")
                         .sign(secretKey)
-        console.log(token)
-
         return NextResponse.json({ message: "로그인 성공", token: token })
       } else {
         return NextResponse.json({ message: "로그인 실패: 비밀번호가 일치하지 않습니다" })
